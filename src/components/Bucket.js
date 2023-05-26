@@ -11,6 +11,7 @@ function Bucket(props) {
   console.log(props.bucket);
 
   const submitUpdate = (value) => {
+    setEdit()
 
     // TODO: Write logic to update the `edit` value in state after a user updates an entry in the list
 
@@ -27,18 +28,21 @@ function Bucket(props) {
     // TODO: Add a className of `bucket row complete ${item.eagerness}` for completed items, and `bucket-row ${item.eagerness}` for non-completed items
     // TODO: Add a key attribute set to the value of the index position
     // Hint: use a ternary operator
-    <div className={ } key={}>
+    <div>
+    {item.complete ? (<div className={ `bucket-row complete ${item.eagerness}` } key={index}>) : (<div className={ `bucket-row ${item.eagerness}` } key={index}>)}
+
 
       // TODO: Add an onClick event that invokes the `completeBucketItem` method passing the item id as a argument
-      <div key={} onClick={}>
-          {/* TODO: Add the item text here */}
+      <div key={index} onClick={()=>completeBucketItem(item.id)}>
+          {item.text}
       </div>
       <div className="icons">
         // TODO: Add an onClick event update the `edit` object with the `id`, `value`, and `eagerness` properties
         <p onClick={}> ✏️</p>
         {/* TODO: Add an onClick event that will invoke the removeBucketItem method passing in the `item.id` */}
-        <p onClick={}> 🗑️</p>
+        <p onClick={()=> removeBucketItem(item.id) }> 🗑️</p>
       </div>
+    </div>
     </div>
   ));
 }
